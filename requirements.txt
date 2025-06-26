@@ -5,4 +5,5 @@ psutil>=6.0.0
 cryptography>=43.0.1
 beautifulsoup4>=4.12.3
 scapy>=2.5.0
-nmap
+python-nmap==0.7.1
+
