@@ -1,13 +1,11 @@
 # requirements.txt for Ethical Hacking Dashboard (Streamlit)
-streamlit
-requests
-beautifulsoup4
-cryptography
-opencv-python
-pynput
-psutil
-python-nmap
-scapy
-SpeechRecognition
-sounddevice
-
+streamlit>=1.39.0
+opencv-python-headless>=4.10.0.84
+requests>=2.32.3
+speechrecognition>=3.10.4
+pyaudio>=0.2.14
+scapy>=2.5.0
+python-nmap>=0.7.1
+psutil>=6.0.0
+cryptography>=43.0.1
+beautifulsoup4>=4.12.3
