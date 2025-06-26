@@ -8,3 +8,6 @@ scapy>=2.5.0
 python-nmap==0.7.1
 streamlit-autorefresh>=0.0.1
 pandas>=2.2.3
+SpeechRecognition==3.10.0
+sounddevice==0.4.6
+pynput==1.7.6
