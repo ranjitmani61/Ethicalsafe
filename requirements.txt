@@ -7,4 +7,4 @@ beautifulsoup4>=4.12.3
 scapy>=2.5.0
 python-nmap==0.7.1
 streamlit-autorefresh>=0.0.1
-
+pandas>=2.2.3
