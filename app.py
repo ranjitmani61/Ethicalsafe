@@ -8,7 +8,6 @@ from modules.network import scan_network, capture_packets, sniff_http, analyze_t
 from modules.process import monitor_processes
 from modules.file_ops import check_file_hash, encrypt_decrypt_file
 from modules.port_scan import scan_ports, stealth_scan
-from modules.voice import recognize_voice
 from modules.wifi import get_wifi_passwords
 from modules.password import check_password_strength
 from modules.web_scan import scan_sql_injection, scan_xss, brute_force_login
@@ -33,7 +32,7 @@ def main():
     tool = st.sidebar.selectbox("Choose a tool", [
         "Device Info", "Track Location", "Network Scan", "Monitor Processes", 
         "Packet Capture", "File Hash Check", "Port Scan", 
-        "Voice Recognition", "Wi-Fi Passwords", "Encrypt/Decrypt File", 
+        "Wi-Fi Passwords", "Encrypt/Decrypt File", 
         "Password Strength", "HTTP Sniffer", "SQL Injection Scan", 
         "XSS Scan", "Brute Force Test", "Traffic Analysis", "Stealth Scan"
     ])
@@ -93,13 +92,6 @@ def main():
                 result = scan_ports(target)
                 st.json(result)
                 logger.info(f"Port Scan: {result}")
-
-    elif tool == "Voice Recognition":
-        if st.button("Recognize Voice"):
-            with results:
-                result = recognize_voice()
-                st.json(result)
-                logger.info(f"Voice Recognition: {result}")
 
     elif tool == "Wi-Fi Passwords":
         if st.button("Get Wi-Fi Passwords"):
