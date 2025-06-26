@@ -4,16 +4,19 @@ import logging
 logger = logging.getLogger(__name__)
 
 def monitor_processes():
+    """
+    Monitor running processes on the system.
+    
+    Returns:
+        dict: Dictionary containing list of processes or error message.
+    """
     try:
-        processes = []
-        for proc in psutil.process_iter(['pid', 'name', 'cpu_percent', 'memory_percent']):
-            processes.append({
-                "pid": proc.info['pid'],
-                "name": proc.info['name'],
-                "cpu": proc.info['cpu_percent'],
-                "memory": proc.info['memory_percent']
-            })
-        return {"status": "Success", "processes": processes[:10]}
+        processes = [
+            {"pid": proc.pid, "name": proc.name(), "username": proc.username()}
+            for proc in psutil.process_iter(['pid', 'name', 'username'])
+        ]
+        logger.info("Processes retrieved successfully")
+        return {"processes": processes[:10]}  # Limit to 10 for performance
     except Exception as e:
-        logger.error(f"Process monitor error: {str(e)}")
-        return {"error": f"Process monitoring failed: {str(e)}"}
+        logger.error(f"Process monitoring error: {str(e)}")
+        return {"error": f"Failed to monitor processes: {str(e)}"}
